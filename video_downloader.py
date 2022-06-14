@@ -20,7 +20,7 @@ class VideoDownloader:
                 if self.on_complete_callback:
                     video.register_on_complete_callback(self.on_complete_callback)
                 
-                video.streams.filter(only_video=True, file_extension='mp4')[0].download(output_folder)
+                video.streams.filter(only_video=True, file_extension='mp4')[0].download(output_path=output_folder, filename='_'.join(video.author, video.title))
 
         except Exception as e:
             print(f'[ERROR] {e}')
